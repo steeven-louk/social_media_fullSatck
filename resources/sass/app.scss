@@ -1,0 +1,53 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+:root{
+    --nav-color: #1876f2;
+    --bg-color: #efefef;
+    --link-color: #626262;
+    --bg-body-color: #fff;
+    --toggle-color: #000;
+  }
+  
+  .dark-theme{
+    --bg-color: #0a0a0a;
+    --nav-color: #000;
+    --bg-body-color: #000;
+    --toggle-color: #fff;
+  
+  }
+  
+  *{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    transition: .4s all ease;
+  }
+  
+  .App{
+    background: var(--bg-color);
+    color: var(--toggle-color)
+  }
+  
+  li{
+    list-style: none;
+  }
+  
+  a{
+    text-decoration: none;
+    color: var(--link-color);
+  }
+  
+  @media only screen and (max-width: 900px) {
+    .sidebarRight, .sidebarLeft{
+      display: none;
+    }
+  }

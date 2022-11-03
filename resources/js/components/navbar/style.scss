@@ -1,0 +1,197 @@
+.navbar{
+    background-color: var(--nav-color);
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: .3em 5%;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    box-shadow: 0 0 10px #ccc;
+
+    @media only screen and (max-width:900px) {
+        flex-wrap: wrap;
+    }
+
+
+    &__left{
+        display: flex;
+        align-items: center;
+
+        &__logo{
+            height: 2em;
+            margin-right: 3em;
+
+            @media only screen and (max-width:900px) {
+                width: 110px;
+                margin-right: 2em;
+            }
+        }
+
+        ul{
+            display: flex;
+            gap: 2em;
+
+            li img{
+                width: 2em;
+
+                @media only screen and (max-width:900px) {
+                    width: 20px;
+                    margin: 0 8px;
+                }
+            }
+        }
+    }
+
+    &__right{
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        &__search{
+            background-color: var(--bg-color);
+            width: 23em;
+            display: flex;
+            align-items: center;
+            padding-left: .5em;
+            border-radius: 2rem;
+
+            @media only screen and (max-width:900px) {
+                display: none;
+            }
+             
+            input{
+                padding: .8em;
+                border: none;
+                background: transparent;
+                width: 100%;
+            }
+        }
+
+        &__user{
+            cursor: pointer;
+            img{
+                border-radius: 50%;
+                object-fit: cover;
+                width: 3em;
+
+                @media only screen and (max-width:900px) {
+                    width: 30px;
+                }
+            }
+
+          
+        }
+        .online{
+            position: relative;
+
+            &::after{
+             content: '';
+             background-color: green;
+             width: .5em;
+             height: .5em;
+             position: absolute;
+             border-radius: 50%;
+             border: 2px solid #fff;
+             left: 2em;
+            }
+         }
+    }
+
+    &__settings-menu{
+
+        position: absolute;
+        width: 90%;
+        max-width: 350px;
+        background: var(--bg-body-color);
+        box-shadow: 0 0 10px #ccc;
+
+        border-radius: .5em;
+        overflow: hidden;
+        top: 62px;
+        right: 5%;
+        max-height: 0;
+        transition: max-height .4s;
+
+        .settings-menu-inner{
+
+            padding: 1.2em;
+
+             .user-profile{
+            display: flex;
+            align-items: center;
+    
+            img{
+              width: 45px;
+              border-radius: 50%;
+             
+            }
+    
+            .user-name{
+              margin: .5em .5em;
+              font-weight: 500;
+              color: var(--link-color);
+              position: relative;
+             
+              p{
+                margin-bottom: 5px;
+              }
+
+              a{
+                font-size: 12px;
+                color: #1876f2;
+              }
+            }
+
+            .toggleTheme{
+                position: absolute;
+                right: 2em;
+                top: 1.6em;
+
+             .icoToggle{
+                height: 1.2rem;
+                cursor: pointer;
+                //color: #fff;
+
+            }
+
+            .icoLight{
+                color: var(--toggle-color);
+            }
+        }
+          }
+
+          hr{
+            border: 0;
+            height: 1px;
+            background: #9a9a9a;
+            margin: 15px 0;
+          }
+
+          .setting-links{
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            text-transform: capitalize;
+
+            .settings-icon{
+                width: 38px;
+                margin-right: 10px;
+                border-radius: 50%;
+            }
+
+            a{
+                display: flex;
+                flex: 1;
+                align-items: center;
+                justify-content: space-between;
+            }
+          }
+        }
+
+    }
+
+    &__settings-menu-display{
+        max-height: 450px;
+    }
+}
