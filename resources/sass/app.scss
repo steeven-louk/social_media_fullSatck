@@ -8,21 +8,21 @@
 @import '~bootstrap/scss/bootstrap';
 
 
-:root{
-    --nav-color: #1876f2;
-    --bg-color: #efefef;
-    --link-color: #626262;
-    --bg-body-color: #fff;
-    --toggle-color: #000;
-  }
+// :root{
+//     --nav-color: #1876f2;
+//     --bg-color: #efefef;
+//     --link-color: #626262;
+//     --bg-body-color: #fff;
+//     --toggle-color: #000;
+//   }
   
-  .dark-theme{
-    --bg-color: #0a0a0a;
-    --nav-color: #000;
-    --bg-body-color: #000;
-    --toggle-color: #fff;
+//   .dark-theme{
+//     --bg-color: #0a0a0a;
+//     --nav-color: #000;
+//     --bg-body-color: #000;
+//     --toggle-color: #fff;
   
-  }
+//   }
   
   *{
     margin: 0;
@@ -30,11 +30,12 @@
     outline: none;
     box-sizing: border-box;
     transition: .4s all ease;
+
   }
   
   .App{
-    background: var(--bg-color);
-    color: var(--toggle-color)
+    background: $bg-color;
+    color: $toggle-color;
   }
   
   li{
@@ -43,7 +44,7 @@
   
   a{
     text-decoration: none;
-    color: var(--link-color);
+    color: $link-color;
   }
   
   @media only screen and (max-width: 900px) {
