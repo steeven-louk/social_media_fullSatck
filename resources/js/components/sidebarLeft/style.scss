@@ -1,0 +1,49 @@
+@import '../../../sass/variables';
+
+
+.sidebarLeft{
+    flex-basis: 25%;
+    position: sticky;
+    align-self: flex-start;
+    height: 100vh;
+    top: 1px;
+
+    &__mainLinks , &__shortcut-link{
+
+        border-bottom: 1px solid #ccc;
+        
+        a{
+            display: flex;
+            margin-bottom: 2em;
+            width: fit-content;
+            align-items: center;
+            text-transform: capitalize;
+
+            img{
+                margin-right: 1em;
+            }
+
+            &:nth-last-child(1){
+                color:  $nav-color;
+            }
+        }
+
+        
+    }
+
+    &__shortcut-link{
+
+        p{
+            margin: 25px 0;
+            color: #626262;
+            font-weight: 500;
+            font-size: 1.5em;
+        }
+
+        a{
+            img{
+                border-radius: .5em;
+            }
+        }
+    }
+}

@@ -43,9 +43,10 @@ const Navbar = (props) => {
                           <span>See Your Profile</span>
                         </a>
                     </div>
-                    <div className="toggleTheme"  onClick={()=> setTheme(!theme)}>
+                    <div className="toggleTheme"  onClick={()=> setTheme(theme)}>
                      <i className="fa fa-sun icoToggle icoLight"></i>
                     </div>
+
                 </div>
 
                     <hr />

@@ -46,9 +46,3 @@
     text-decoration: none;
     color: $link-color;
   }
-  
-  @media only screen and (max-width: 900px) {
-    .sidebarRight, .sidebarLeft{
-      display: none;
-    }
-  }

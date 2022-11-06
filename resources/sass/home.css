@@ -1,0 +1,1 @@
+.home{display:flex;justify-content:space-between;padding:13px 5%}.home__container{flex-basis:47px}@media only screen and (max-width: 900px){.home__container{flex-basis:100%}}@media only screen and (max-width: 900px){.home__container .sidebarRight,.home__container .sidebarLeft{display:none}}
