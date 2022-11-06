@@ -5331,10 +5331,75 @@ function Index() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "home",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_sidebarLeft_SidebarLeft__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "home__container bg-secondary",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
-          className: "fw-bold text-uppercase",
-          children: "test"
+        className: "home__container",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "story-gallery",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "story",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+              src: "./images/upload.png",
+              alt: "upload",
+              className: "upload"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+              src: "./images/status-1.png",
+              alt: "",
+              className: "profil"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+              children: "Post Story"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "story profil",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+              src: "./images/member-1.png",
+              alt: "member-1",
+              className: "upload"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+              src: "./images/status-2.png",
+              alt: "",
+              className: "profil"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+              children: "Post Story"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "story profil",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+              src: "./images/member-2.png",
+              alt: "member-1",
+              className: "upload"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+              src: "./images/status-3.png",
+              alt: "",
+              className: "profil"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+              children: "Post Story"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "story profil",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+              src: "./images/member-3.png",
+              alt: "member-1",
+              className: "upload"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+              src: "./images/status-4.png",
+              alt: "",
+              className: "profil"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+              children: "Post Story"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "story profil",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+              src: "./images/member-4.png",
+              alt: "member-1",
+              className: "upload"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+              src: "./images/status-5.png",
+              alt: "",
+              className: "profil"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+              children: "Post Story"
+            })]
+          })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_sidebarRight_SidebarRight__WEBPACK_IMPORTED_MODULE_4__.SidebarRight, {})]
     })]
@@ -11102,7 +11167,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".home{display:flex;justify-content:space-between;padding:13px 5%}.home__container{flex-basis:47px}@media only screen and (max-width: 900px){.home__container{flex-basis:100%}}@media only screen and (max-width: 900px){.home__container .sidebarRight,.home__container .sidebarLeft{display:none}}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".home{display:flex;justify-content:space-between;padding:13px 5%}.home__container{flex-basis:47%}@media only screen and (max-width: 900px){.home__container{flex-basis:100%}}.home__container .story-gallery{display:flex;justify-content:space-between;margin-bottom:20px;gap:.5em}.home__container .story-gallery .story{flex-basis:18%;position:relative;overflow:hidden}@media only screen and (max-width: 900px){.home__container .story-gallery .story img{width:20px;border-width:3px}}.home__container .story-gallery .story .upload{width:2.2em;border-radius:50%;position:absolute;bottom:5em;left:2.5em;cursor:pointer;transition:.4s all ease-in-out}.home__container .story-gallery .story .upload:hover{box-shadow:1px 1px 5px #000;border-radius:50%}.home__container .story-gallery .story p{position:relative;top:-1.5em;text-align:center;font-weight:bold;color:#fff;box-shadow:0 -2px 20px #000}@media only screen and (max-width: 900px){.home__container .story-gallery .story p{font-size:10px}}.home__container .story-gallery .story .profil{background-position:center;background-size:cover;border-radius:10px;width:5.5em;background:linear-gradient(transparent, rgba(0, 0, 0, 0.5));width:100%}.home__container .story-gallery .story.profil .upload{top:unset;left:5%;bottom:11rem;border:3px solid #efefef}@media only screen and (max-width: 900px){.home__container .sidebarRight,.home__container .sidebarLeft{display:none}}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
