@@ -3,6 +3,7 @@ import Navbar from './components/navbar/Navbar';
 import SidebarLeft from './components/sidebarLeft/SidebarLeft';
 
 import '../sass/home.css'
+import { SidebarRight } from './components/sidebarRight/SidebarRight';
 
 function Index() {
     return (
@@ -13,7 +14,7 @@ function Index() {
                 <div className="home__container bg-secondary">
                     <h1 className='fw-bold text-uppercase'>test</h1>
                 </div>
-                <div className="bg-danger">right</div>
+                <SidebarRight/>
             </div>
             
         </div>
