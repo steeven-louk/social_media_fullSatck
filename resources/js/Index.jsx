@@ -6,6 +6,8 @@ import { SidebarRight } from './components/sidebarRight/SidebarRight';
 
 import '../sass/index.scss';
 import Home from './views/Home';
+import Login from './views/auth/Login';
+import Register from './views/auth/Register';
 
 
 function Index() {
@@ -21,12 +23,15 @@ function Index() {
 
     return (
         <div>
-            <Navbar />
+            {/* <Navbar />
             <div className="home d-flex justify-content-between">
                 <SidebarLeft />
                 <Home/>
                 <SidebarRight />
-            </div>
+            </div> */}
+            {/* <Login/> */}
+            <Register/>
+
         </div>
     );
 }

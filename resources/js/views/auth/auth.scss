@@ -1,0 +1,50 @@
+.login {
+  overflow: hidden;
+}
+.left , .auth__container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3em;
+}
+
+
+
+.auth__container{
+    background: #fff;
+
+
+        .title{
+            position: relative;
+            bottom: 1em;
+        }
+
+    .form{
+        input{
+            width: 25em;
+        }
+
+        .btn{
+            transition: .3s all ease-in;
+
+            &:hover{
+                background: #fff!important;
+                color: #ff0000!important;
+                border: 1px solid #ff0000;
+
+            }
+        }
+    }
+}
+
+.Register .row{
+    .left{
+        order: 2;
+    }
+
+    .auth__container{
+        order: 1;
+    }
+}
