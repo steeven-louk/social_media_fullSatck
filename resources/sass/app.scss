@@ -1,6 +1,6 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
+@import url('https://fonts.googleapis.com/css2? family= Roboto+Condensed:wght@300;400;700 & display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 // Variables
 @import 'variables';
 
@@ -30,10 +30,11 @@
     outline: none;
     box-sizing: border-box;
     transition: .4s all ease;
+    font-family: 'Roboto Condensed', sans-serif;
 
   }
-  
-  .App{
+
+  body{
     background: $bg-color;
     color: $toggle-color;
   }

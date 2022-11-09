@@ -2,7 +2,7 @@
 
 
 .sidebarLeft{
-    flex-basis: 25%;
+    flex-basis: 50%;
     position: sticky;
     align-self: flex-start;
     height: 100vh;
@@ -46,4 +46,9 @@
             }
         }
     }
+
+    
+  @media only screen and (max-width: 900px) {
+      display: none;
+  }
 }

@@ -26,10 +26,12 @@ const Navbar = (props) => {
             <div className="navbar__right">
                 <div className="navbar__right__search">
                     <img src="./images/search.png" alt="" />
-                    <input type="text" placeholder='Search' />
+                    <input type="text" className='form-control' placeholder='Search' />
                 </div>
-                <div className="navbar__right__user online" onClick={()=>setIsToggle(!isToggle)}>
+                <div className="navbar__right__user" onClick={()=>setIsToggle(!isToggle)}>
+                    <div className="online">
                     <img src="./images/profile-pic.png" alt="" />
+                    </div>
                 </div>
             </div>
 

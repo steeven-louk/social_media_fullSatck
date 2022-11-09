@@ -1,51 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/navbar/Navbar';
 import SidebarLeft from './components/sidebarLeft/SidebarLeft';
 
-import '../sass/home.css'
 import { SidebarRight } from './components/sidebarRight/SidebarRight';
 
+import '../sass/index.scss';
+import Home from './views/Home';
+
+
 function Index() {
+
+
+    const [post, setPost] = useState([]);
+    const [selectFile, setSelectFile] = useState();
+  
+    const [input, setInput] = useState('');
+    const [error, setError] = useState('');
+
+
+
     return (
         <div>
-            <Navbar/>
-            <div className="home">
-                <SidebarLeft/>
-
-                <div className="home__container">
-                <div className="story-gallery">
-                  <div className="story">
-                    <img src="./images/upload.png" alt="upload" className='upload' />
-                    <img src="./images/status-1.png" alt="" className='profil' />
-                    <p>Post Story</p>
-                  </div>
-
-                  <div className="story profil">
-                    <img src="./images/member-1.png" alt="member-1" className='upload' />
-                    <img src="./images/status-2.png" alt="" className='profil' />
-                    
-                    <p>Post Story</p>
-                  </div>
-                  <div className="story profil">
-                    <img src="./images/member-2.png" alt="member-1" className='upload' />
-                    <img src="./images/status-3.png" alt="" className='profil' />
-                    <p>Post Story</p>
-                  </div>
-                  <div className="story profil">
-                    <img src="./images/member-3.png" alt="member-1" className='upload' />
-                    <img src="./images/status-4.png" alt="" className='profil' />
-                    <p>Post Story</p>
-                  </div>
-                  <div className="story profil">
-                    <img src="./images/member-4.png" alt="member-1" className='upload' />
-                    <img src="./images/status-5.png" alt="" className='profil' />
-                    <p>Post Story</p>
-                  </div>
-                </div>
-                </div>
-                <SidebarRight/>
+            <Navbar />
+            <div className="home d-flex justify-content-between">
+                <SidebarLeft />
+                <Home/>
+                <SidebarRight />
             </div>
-            
         </div>
     );
 }

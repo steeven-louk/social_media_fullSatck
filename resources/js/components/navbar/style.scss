@@ -2,14 +2,13 @@
 
 .navbar{
     background-color: $nav-color;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    padding: .3em 5%;
+    padding: .2em 5%;
     position: sticky;
     top: 0;
     z-index: 2;
     box-shadow: 0 0 10px #ccc;
+
+
 
     @media only screen and (max-width:900px) {
         flex-wrap: wrap;
@@ -17,12 +16,9 @@
 
 
     &__left{
-        display: flex;
-        align-items: center;
 
         &__logo{
             height: 2em;
-            margin-right: 3em;
 
             @media only screen and (max-width:900px) {
                 width: 110px;
@@ -31,8 +27,10 @@
         }
 
         ul{
+            position: relative;
             display: flex;
             gap: 2em;
+            top: .5em;
 
             li img{
                 width: 2em;
@@ -41,6 +39,9 @@
                     width: 20px;
                     margin: 0 8px;
                 }
+            }
+            @media only screen and (max-width:900px) {
+                gap: 0;
             }
         }
     }
@@ -52,7 +53,7 @@
 
         &__search{
             background-color: $bg-color;
-            width: 23em;
+            width: 26em;
             display: flex;
             align-items: center;
             padding-left: .5em;
@@ -63,7 +64,7 @@
             }
              
             input{
-                padding: .8em;
+                padding: .5em;
                 border: none;
                 background: transparent;
                 width: 100%;
@@ -72,32 +73,42 @@
 
         &__user{
             cursor: pointer;
-            img{
-                border-radius: 50%;
-                object-fit: cover;
-                width: 3em;
+            display: flex;
+            align-items: center;
 
-                @media only screen and (max-width:900px) {
-                    width: 30px;
+            .online{
+                position: relative;
+    
+                &::after{ 
+                 content: '';
+                 background-color: green;
+                 width: .7rem;
+                 height: .7rem;
+                 position: absolute;
+                 border-radius: 50%;
+                 border: 2px solid #fff;
+                 left: 2.3em;
+
+                 @media only screen and (max-width:900px) {
+                    left: 1.5em;
                 }
-            }
+                }
+
+                img{
+                    border-radius: 50%;
+                    object-fit: cover;
+                    width: 3.5em;
+    
+                    @media only screen and (max-width:900px) {
+                        width: 30px;
+                    }
+                }
+             }
+         
 
           
         }
-        .online{
-            position: relative;
-
-            &::after{
-             content: '';
-             background-color: green;
-             width: .5em;
-             height: .5em;
-             position: absolute;
-             border-radius: 50%;
-             border: 2px solid #fff;
-             left: 2em;
-            }
-         }
+      
     }
 
     &__settings-menu{

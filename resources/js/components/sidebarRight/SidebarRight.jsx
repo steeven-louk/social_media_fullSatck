@@ -10,7 +10,7 @@ export const SidebarRight = () => {
         <a href="/">See All</a>
       </div>
 
-      <div className="event">
+      <div className="event fw-bold">
         <div className="event__left">
           <h3>18</h3>
           <span>March</span>
@@ -23,7 +23,7 @@ export const SidebarRight = () => {
         </div>
       </div>
 
-      <div className="event">
+      <div className="event fw-bold">
         <div className="event__left">
           <h3>22</h3>
           <span>June</span>
@@ -31,7 +31,7 @@ export const SidebarRight = () => {
         
         <div className="event__right">
             <h4>Mobile Marketing</h4>
-            <p><i className="fas fa-map-marker-alt"></i>willson tech park</p>
+            <p><i className="fas fa-map-marker-alt"></i> willson tech park</p>
             <a href="/">more info</a>
         </div>
       </div>
@@ -65,9 +65,6 @@ export const SidebarRight = () => {
         </div>
         <p>Samona Rose</p>
       </div>
-
-
-
     </div>
   )
 }

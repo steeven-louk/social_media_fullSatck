@@ -1,9 +1,11 @@
+@import "../../../sass/_variables.scss";
+
 .sidebarRight{
-    background: var(--bg-color);
-    flex-basis: 25%;
+    background:  $bg-body-color;
+    flex-basis: 45%;
     position: sticky;
     align-self: flex-start;
-    padding: .5em;
+    padding: .8em;
     border-radius: 4px;
     top: 1px;
 
@@ -16,29 +18,29 @@
         margin-bottom: 2em;
 
         h4{
-            font-weight: 600;
+            font-weight: bold;
             font-size: 1.2em;
-            color: var(--toggle-color);
+            color: $toggle-color;
         }
 
         a{
-            color: #1876f2;
+            color:  $nav-color;
             font-size: 1em;
         }
     }
 
     .event{
         display: flex;
-        font-size: 14px;
         margin-bottom: 20px;
 
         a, p{
             font-size: 12px;
             text-transform: capitalize;
+            margin-bottom: -.3rem;
         }
 
         a{
-            color: #1876f2;
+            color:  $nav-color;
         }
 
         &__left{
@@ -50,19 +52,32 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            border: 1px solid var(--toggle-color);
+            border: 1px solid $toggle-color;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+            h3{
+                font-size: 14px;
+                font-weight: bold;
+            }
 
             span{
                 position: absolute;
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                background: #1876f2;
-                color: var(--toggle-color);
+                background: $nav-color;
+                color: $toggle-color;
                 font-size: 10px;
                 padding: 4px 0;
                 font-weight: bold;
+            }
+        }
+
+        &__right{
+
+            h4{
+                font-size: 15px;
+                margin-bottom: .2rem;
             }
         }
 
@@ -86,14 +101,14 @@
             &::after{
              content: '';
              background-color: green;
-             width: .5em;
-             height: .5em;
+             width: .6em;
+             height: .6em;
              position: absolute;
              top: unset;
              bottom: .3em;
              border-radius: 50%;
              border: 2px solid #fff;
-             left: 2em;
+             left: 2.3em;
             }
 
             img{
@@ -103,4 +118,10 @@
          }
 
     }
+
+    
+  @media only screen and (max-width: 900px) {
+      display: none;
+    
+  }
 }
