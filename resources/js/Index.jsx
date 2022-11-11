@@ -11,8 +11,6 @@ function Index() {
     const [post, setPost] = useState([]);
     const [selectFile, setSelectFile] = useState();
 
-    const [isUserAuthentificated, setisUserAuthentificated] = useState(true);
-
     const [input, setInput] = useState("");
     const [error, setError] = useState("");
 

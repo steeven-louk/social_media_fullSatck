@@ -8734,18 +8734,14 @@ function Index() {
     _useState4 = _slicedToArray(_useState3, 2),
     selectFile = _useState4[0],
     setSelectFile = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState6 = _slicedToArray(_useState5, 2),
-    isUserAuthentificated = _useState6[0],
-    setisUserAuthentificated = _useState6[1];
+    input = _useState6[0],
+    setInput = _useState6[1];
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState8 = _slicedToArray(_useState7, 2),
-    input = _useState8[0],
-    setInput = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-    _useState10 = _slicedToArray(_useState9, 2),
-    error = _useState10[0],
-    setError = _useState10[1];
+    error = _useState8[0],
+    setError = _useState8[1];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Routes, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
