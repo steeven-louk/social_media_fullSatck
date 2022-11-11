@@ -1,40 +1,34 @@
-import React, { useState } from 'react';
-import Navbar from './components/navbar/Navbar';
-import SidebarLeft from './components/sidebarLeft/SidebarLeft';
+import React, { useState } from "react";
 
-import { SidebarRight } from './components/sidebarRight/SidebarRight';
+import Login from "./views/auth/Login";
+import Register from "./views/auth/Register";
+import Main_Layout from "./layouts/Main_Layout";
 
-import '../sass/index.scss';
-import Home from './views/Home';
-import Login from './views/auth/Login';
-import Register from './views/auth/Register';
-
+import { Route, Routes } from "react-router-dom";
+import ProtectedRoutes from "./Routes/ProtectedRoutes";
 
 function Index() {
-
-
     const [post, setPost] = useState([]);
     const [selectFile, setSelectFile] = useState();
-  
-    const [input, setInput] = useState('');
-    const [error, setError] = useState('');
 
+    const [isUserAuthentificated, setisUserAuthentificated] = useState(true);
 
+    const [input, setInput] = useState("");
+    const [error, setError] = useState("");
 
     return (
         <div>
-            {/* <Navbar />
-            <div className="home d-flex justify-content-between">
-                <SidebarLeft />
-                <Home/>
-                <SidebarRight />
-            </div> */}
-            {/* <Login/> */}
-            <Register/>
-
+            <Routes>
+                <Route
+                    path="/"
+                    exact
+                    element={<ProtectedRoutes Component={Main_Layout} />}
+                />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+            </Routes>
         </div>
     );
 }
 
 export default Index;
-
