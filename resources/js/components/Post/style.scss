@@ -1,0 +1,80 @@
+.card{
+    width: 100%;
+      border-radius: 6px;
+      padding: 20px;
+      color: #626262;
+      margin: 20px 0;
+      background-color: var(--bg-body-color);
+
+    &__user-profile{
+        display: flex;
+        align-items: center;
+        margin-bottom: 1em;
+
+        img{
+          width: 45px;
+          border-radius: 50%;
+          margin-top: 10px;
+        }
+
+        .card__user-name{
+          margin: .5em .5em;
+          font-weight: 500;
+          color: #9a9a9a;
+
+          span{
+            font-size: 13px;
+          }
+         
+          p{
+            margin-bottom: 5px;
+          }
+        }
+      }
+
+      .card__body{
+
+        &__text{
+            color: #9a9a9a;
+            margin: 15px 0;
+            font-size: 15px;
+        }
+
+        &__post-media{
+            width: 100%;
+            border-radius: .3em;
+            margin-bottom: 5px;
+        }
+
+        .post-row{
+            padding: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .activity-icons{
+                display: flex;
+                gap: 2em;
+
+                div{
+                    display: inline-block;
+                    align-items: center;
+                    margin-right: 30px;
+                }
+            }
+
+            .post-profile-icon{
+                display: flex;
+                align-items: center;
+                gap: .5em;
+
+                img{
+                    width: 2em;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+      }
+
+}
