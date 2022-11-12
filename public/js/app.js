@@ -9025,7 +9025,7 @@ var Navbar = function Navbar(props) {
             className: "online",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
               src: "./images/profile-pic.png",
-              alt: ""
+              alt: "profile"
             })
           })
         })]
@@ -9041,7 +9041,8 @@ var Navbar = function Navbar(props) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               className: "user-name",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                children: "John Nicholson"
+                className: "text-capitalize",
+                children: props === null || props === void 0 ? void 0 : props.username
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
                 href: "/profile",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
@@ -9492,10 +9493,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Main_Layout = function Main_Layout() {
+  var id = JSON.parse(localStorage.getItem('id'));
+  var username = JSON.parse(localStorage.getItem('username'));
+  var slug = JSON.parse(localStorage.getItem('slug'));
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      username: username
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "home d-flex justify-content-between",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_sidebarLeft_SidebarLeft__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_views_Home__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_sidebarRight_SidebarRight__WEBPACK_IMPORTED_MODULE_3__.SidebarRight, {})]
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_sidebarLeft_SidebarLeft__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_views_Home__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        id: id,
+        username: username,
+        slug: slug
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_sidebarRight_SidebarRight__WEBPACK_IMPORTED_MODULE_3__.SidebarRight, {})]
     })]
   });
 };
@@ -9535,7 +9545,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var Home = function Home() {
+var Home = function Home(props) {
   var getPost = JSON.parse(localStorage.getItem("post"));
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(getPost),
     _useState2 = _slicedToArray(_useState, 2),
@@ -9549,6 +9559,10 @@ var Home = function Home() {
     _useState6 = _slicedToArray(_useState5, 2),
     error = _useState6[0],
     setError = _useState6[1];
+  console.log(props);
+  var id = props.id,
+    slug = props.slug,
+    username = props.username;
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
     var id = 0;
@@ -9579,7 +9593,8 @@ var Home = function Home() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "user-name",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-                children: "John Nicholson"
+                className: "text-capitalize",
+                children: username
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("small", {
                 children: ["Public ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
                   className: "fas fa-caret-down"
@@ -9590,10 +9605,10 @@ var Home = function Home() {
             className: "post-input-container",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("textarea", {
               rows: "3",
-              placeholder: "What's on your mind, John?",
+              placeholder: "What's on your mind, ".concat(username, "?"),
               value: input,
               onChange: function onChange(e) {
-                return setInput(e.target.value.toLowerCase());
+                return setInput(e.target.value);
               }
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "add-post-links",
@@ -9829,8 +9844,10 @@ var Register = function Register() {
                 password: register.password
               }).then(function (res) {
                 if (res.data.status === 200) {
+                  localStorage.setItem('id', JSON.stringify(res.data.id));
                   localStorage.setItem('auth_token', JSON.stringify(res.data.token));
                   localStorage.setItem('username', JSON.stringify(res.data.username));
+                  localStorage.setItem('slug', JSON.stringify(res.data.slug));
                   sweetalert__WEBPACK_IMPORTED_MODULE_2___default()("Success", res.data.message, "success");
 
                   // navigate("/", replace);

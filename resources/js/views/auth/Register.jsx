@@ -35,8 +35,11 @@ const Register = () => {
         }).then((res)=> {
             if(res.data.status === 200){
 
+                localStorage.setItem('id',JSON.stringify(res.data.id));
                 localStorage.setItem('auth_token',JSON.stringify(res.data.token));
                 localStorage.setItem('username',JSON.stringify(res.data.username));
+                localStorage.setItem('slug',JSON.stringify(res.data.slug));
+
 
                 swal("Success", res.data.message, "success");
 

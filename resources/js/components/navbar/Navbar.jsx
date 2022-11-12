@@ -30,7 +30,7 @@ const Navbar = (props) => {
                 </div>
                 <div className="navbar__right__user" onClick={()=>setIsToggle(!isToggle)}>
                     <div className="online">
-                    <img src="./images/profile-pic.png" alt="" />
+                    <img src="./images/profile-pic.png" alt="profile" />
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@ const Navbar = (props) => {
                <div className="user-profile">
                     <img src="./images/profile-pic.png" alt="" />
                     <div className="user-name">
-                      <p>John Nicholson</p>
+                      <p className="text-capitalize">{props?.username}</p>
                         <a href="/profile">
                           <span>See Your Profile</span>
                         </a>

@@ -4,13 +4,17 @@ import { Story_gallery } from "../components/story/Story-gallery";
 
 import "./styles/home.scss";
 
-const Home = () => {
+const Home = (props) => {
     const getPost = JSON.parse(localStorage.getItem("post"));
 
     const [post, setPost] = useState(getPost);
 
     const [input, setInput] = useState("");
     const [error, setError] = useState("");
+
+    console.log(props)
+    const { id, slug, username } = props;
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -43,7 +47,7 @@ const Home = () => {
                                 <img src="./images/profile-pic.png" alt="" />
                             </a>
                             <div className="user-name">
-                                <p>John Nicholson</p>
+                                <p className="text-capitalize">{username}</p>
                                 <small>
                                     Public <i className="fas fa-caret-down"></i>{" "}
                                 </small>
@@ -53,10 +57,10 @@ const Home = () => {
                         <div className="post-input-container">
                             <textarea
                                 rows="3"
-                                placeholder="What's on your mind, John?"
+                                placeholder={`What's on your mind, ${username}?`}
                                 value={input}
                                 onChange={(e) =>
-                                    setInput(e.target.value.toLowerCase())
+                                    setInput(e.target.value)
                                 }
                             ></textarea>
                             {/* {error && error} */}
