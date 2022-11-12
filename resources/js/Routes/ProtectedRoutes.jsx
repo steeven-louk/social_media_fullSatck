@@ -10,9 +10,9 @@ const ProtectedRoutes = (props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        let login = JSON.parse(localStorage.getItem('login'))
+        let login = JSON.parse(localStorage.getItem('auth_token'))
      
-      if(login) {
+      if(!login) {
         navigate('/login');
       }
     }, []);

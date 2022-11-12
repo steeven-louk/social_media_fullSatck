@@ -17,16 +17,18 @@ const Login = () => {
         setLogin({...login,[e.target.name]: e.target.value});
     }
 
+
+const handleSubmit= ()=>{
+    console.log('login')
+}
+
     const navigate = useNavigate();
 
-    const handleSubmit = () => {
-        localStorage.setItem("login", JSON.stringify(true));
-    };
 
     useEffect(() => {
-        let login = JSON.parse(localStorage.getItem("login"));
+        let auth = JSON.parse(localStorage.getItem("auth_token"));
 
-        if (!login) {
+        if (auth) {
             navigate("/" , replace);
         }
     }, []);
