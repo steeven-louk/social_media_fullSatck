@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import PostCard from "../components/Post/PostCard";
 import { Story_gallery } from "../components/story/Story-gallery";
@@ -9,30 +10,37 @@ const Home = (props) => {
 
     const [post, setPost] = useState(getPost);
 
-    const [input, setInput] = useState("");
+    const [content, setInput] = useState("");
     const [error, setError] = useState("");
 
-    console.log(props)
-    const { id, slug, username } = props;
+    const { id, slug, username } = props;        
+ 
 
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        try {
+            
+        await axios.post('http://127.0.0.1:8000/api/add-post',{
+            'content' :content,
+            'user_id': id
+        }).then((res) => console.log('res',res)).catch((e)=> console.log('error',e));
 
-        let id = 0;
-        let getId = id++;
 
-        setPost([
-            ...post,
-            {
-                text: input,
-                id: getId,
-                image: "",
-            },
-        ]);
+        } catch (error) {
+            console.log('errotTTT',error);
+        }
 
-        localStorage.setItem("post", JSON.stringify(post));
-        setInput("");
+        // setPost([
+        //     ...post,
+        //     {
+        //         text: input,
+        //         id: getId,
+        //         image: "",
+        //     },
+        // ]);
+
+        // localStorage.setItem("post", JSON.stringify(post));
+        // setInput("");
     };
 
     return (
@@ -58,7 +66,7 @@ const Home = (props) => {
                             <textarea
                                 rows="3"
                                 placeholder={`What's on your mind, ${username}?`}
-                                value={input}
+                                value={content}
                                 onChange={(e) =>
                                     setInput(e.target.value)
                                 }

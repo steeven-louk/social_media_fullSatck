@@ -1,23 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( User $user)
     {
         //
-        return User::select('id','name','email','image')->get();
+        // $post = Post::all();
+        // dd($user->where( Auth::user->id)->get());
+              $user = Post::with('user')->first();
+dd($user);
+//        $user = Post::with('user')->get();
 
+        // return $post;
     }
 
     /**
@@ -38,30 +44,47 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'content' => 'required|max:255',
+            'user_id' => 'exists:users,id',
+        ]);
+
+       // $user = Post::with('user')->get();
+
+        $AddPost = new Post([
+            'content' => $request-> content,
+            'media' =>$request-> media,
+             "user_id" => 10
+            
+
+        ]);
+
+          $AddPost->save();
+         return $AddPost;
+ 
+
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        $user = User::find($id);
-        // return $user::select('id','name','email','image')->get();
-
-        return $user;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
         //
     }
@@ -70,10 +93,10 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
         //
     }
@@ -81,10 +104,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
         //
     }
