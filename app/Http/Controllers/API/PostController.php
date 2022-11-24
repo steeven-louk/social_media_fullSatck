@@ -1,29 +1,33 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
+
+
 {
+
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index( User $user)
+    public function index(Request $request)
     {
-        //
-        // $post = Post::all();
-        // dd($user->where( Auth::user->id)->get());
-              $user = Post::with('user')->first();
-dd($user);
-//        $user = Post::with('user')->get();
-
-        // return $post;
+        $getPost = Post::all();
+        return $getPost;
     }
 
     /**
@@ -44,36 +48,31 @@ dd($user);
      */
     public function store(Request $request)
     {
-
-        $request->validate([
-            'content' => 'required|max:255',
-            'user_id' => 'exists:users,id',
+        //
+        $request-> validate( [
+            'content' => 'required| max:255',
+            'user_id' => 'exists: users, id'
         ]);
 
-       // $user = Post::with('user')->get();
 
-        $AddPost = new Post([
+        $addPost = new Post([
             'content' => $request-> content,
             'media' =>$request-> media,
-             "user_id" => 10
-            
-
+            // 'user_id' => auth()->user()->id
         ]);
 
-          $AddPost->save();
-         return $AddPost;
- 
+         $addPost -> save();
 
-
+        return $addPost;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
         //
     }
@@ -81,10 +80,10 @@ dd($user);
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
         //
     }
@@ -93,10 +92,10 @@ dd($user);
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -104,10 +103,10 @@ dd($user);
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
         //
     }

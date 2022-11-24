@@ -12,6 +12,11 @@ class Post extends Model
 
     protected $garder= [];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
     protected $fillable = [
         'content',
         'media',
@@ -19,8 +24,5 @@ class Post extends Model
         'user_id'
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+
 }

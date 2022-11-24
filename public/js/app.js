@@ -9549,8 +9549,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Home = function Home(props) {
-  var getPost = JSON.parse(localStorage.getItem("post"));
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(getPost),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
     post = _useState2[0],
     setPost = _useState2[1];
@@ -9562,6 +9561,10 @@ var Home = function Home(props) {
     _useState6 = _slicedToArray(_useState5, 2),
     error = _useState6[0],
     setError = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+    _useState8 = _slicedToArray(_useState7, 2),
+    loading = _useState8[0],
+    setLoading = _useState8[1];
   var id = props.id,
     slug = props.slug,
     username = props.username;
@@ -9577,10 +9580,6 @@ var Home = function Home(props) {
               return axios__WEBPACK_IMPORTED_MODULE_0___default().post('http://127.0.0.1:8000/api/add-post', {
                 'content': content,
                 'user_id': id
-              }).then(function (res) {
-                return console.log('res', res);
-              })["catch"](function (e) {
-                return console.log('error', e);
               });
             case 4:
               _context.next = 9;
@@ -9588,7 +9587,7 @@ var Home = function Home(props) {
             case 6:
               _context.prev = 6;
               _context.t0 = _context["catch"](1);
-              console.log('errotTTT', _context.t0);
+              console.log('error', _context.t0);
             case 9:
             case "end":
               return _context.stop();
@@ -9600,6 +9599,35 @@ var Home = function Home(props) {
       return _ref.apply(this, arguments);
     };
   }();
+  var getPosts = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      var getPost;
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('http://127.0.0.1:8000/api/getAllPost');
+            case 2:
+              getPost = _context2.sent;
+              if (!getPost.status === 200) {
+                setLoading(true);
+              }
+              setPost(getPost.data);
+            case 5:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+    return function getPosts() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    getPosts();
+  }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "home__container",
@@ -9669,10 +9697,10 @@ var Home = function Home(props) {
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "post__container",
-          children: post === null || post === void 0 ? void 0 : post.map(function (item, index) {
+          children: post === null || post === void 0 ? void 0 : post.map(function (item) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Post_PostCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
               post: item
-            }, index);
+            }, item === null || item === void 0 ? void 0 : item.id);
           })
         })]
       })]

@@ -1,47 +1,52 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PostCard from "../components/Post/PostCard";
 import { Story_gallery } from "../components/story/Story-gallery";
 
 import "./styles/home.scss";
 
 const Home = (props) => {
-    const getPost = JSON.parse(localStorage.getItem("post"));
 
-    const [post, setPost] = useState(getPost);
+    const [post, setPost] = useState([]);
 
     const [content, setInput] = useState("");
     const [error, setError] = useState("");
 
-    const { id, slug, username } = props;        
- 
+    const [loading, setLoading] = useState(false);
 
+    const { id, slug, username } = props;      
+    
+ 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         try {
             
         await axios.post('http://127.0.0.1:8000/api/add-post',{
             'content' :content,
-            'user_id': id
-        }).then((res) => console.log('res',res)).catch((e)=> console.log('error',e));
+             'user_id': id
+        });
 
 
         } catch (error) {
-            console.log('errotTTT',error);
+            console.log('error',error);
+        }
+    };
+    
+    const getPosts = async() =>{
+        const getPost = await axios.get('http://127.0.0.1:8000/api/getAllPost');
+
+        if(!getPost.status === 200){
+            setLoading(true);
         }
 
-        // setPost([
-        //     ...post,
-        //     {
-        //         text: input,
-        //         id: getId,
-        //         image: "",
-        //     },
-        // ]);
+        setPost(getPost.data)
+    }
 
-        // localStorage.setItem("post", JSON.stringify(post));
-        // setInput("");
-    };
+    useEffect(() => {
+      getPosts();
+    }, []);
+
 
     return (
         <div>
@@ -107,8 +112,8 @@ const Home = (props) => {
                     </form>
 
                     <div className="post__container">
-                        {post?.map((item, index) => (
-                            <PostCard post={item} key={index} />
+                        {post?.map((item) => (
+                            <PostCard post={item} key={item?.id} />
                         ))}
                     </div>
                 </div>

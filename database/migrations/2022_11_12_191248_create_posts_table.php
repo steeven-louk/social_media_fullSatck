@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('content');
             $table->string('media')->nullable();
             $table->integer('like')->nullable();
-            $table->foreignId('user_id')->constrained();
+            // $table->foreignId('user_id')->constrained()->nullable();
             $table->timestamps();
         });
     }
